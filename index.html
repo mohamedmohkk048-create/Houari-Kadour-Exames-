@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Houari Kadour Exames - منصة تعليمية جزائرية للفروض والاختبارات والدروس">
+<title>Houari Kadour Exames</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fc;color:#18243a}
+header{background:#10294c;color:white;padding:22px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:#54b4ff}
+nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
+.hero{background:linear-gradient(130deg,#10294c,#1768a9);color:white;text-align:center;padding:65px 18px}
+.hero h1{font-size:32px;margin:0 0 15px}
+.hero p{color:#d6eaff;font-size:16px}
+.search{max-width:550px;margin:28px auto 0;display:flex;background:white;border-radius:12px;overflow:hidden;padding:5px}
+.search input{flex:1;border:0;padding:14px;font-size:15px;outline:none;min-width:0}
+.search button{border:0;background:#1477c9;color:white;padding:12px 20px;border-radius:9px;font-weight:bold}
+.container{max-width:1100px;margin:35px auto;padding:0 16px}
+.section-title{font-size:23px;margin-bottom:20px}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
+.card{background:white;border-radius:14px;padding:22px 12px;text-align:center;box-shadow:0 3px 14px #10294c12;border:1px solid #e8edf5}
+.card .emoji{font-size:32px}
+.card h3{font-size:16px;margin:12px 0 5px}
+.card p{color:#78869b;font-size:13px}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.subject{background:white;padding:17px;border-radius:12px;text-align:center;border:1px solid #e8edf5}
+.subject a{color:#1768a9;text-decoration:none;font-weight:bold}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.exam{background:white;padding:18px;border-radius:12px;border:1px solid #e8edf5}
+.exam h3{font-size:16px}
+.exam p{font-size:13px;color:#78869b}
+.exam a{display:inline-block;background:#1768a9;color:white;padding:9px 15px;border-radius:8px;text-decoration:none;font-size:13px}
+.empty{display:none;text-align:center;padding:20px;color:#78869b}
+footer{margin-top:50px;background:#10294c;color:white;text-align:center;padding:28px 15px}
+footer p{font-size:13px;color:#c7d8ec}
+@media(max-width:600px){
+header{justify-content:center;text-align:center}
+nav{width:100%}
+.hero h1{font-size:25px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">Houari Kadour <span>Exames</span></div>
+ <nav>
+  <a href="#">الرئيسية</a>
+  <a href="#levels">المستويات</a>
+  <a href="#subjects">المواد</a>
+  <a href="#exams">الاختبارات</a>
+ </nav>
+</header>
+
+<section class="hero">
+ <h1>مرحباً بكم في Houari Kadour Exames</h1>
+ <p>منصتكم التعليمية الجزائرية للفروض والاختبارات والدروس</p>
+ <div class="search">
+  <input id="search" type="search" placeholder="ابحث عن امتحان أو مادة أو مستوى...">
+  <button onclick="searchItems()">بحث</button>
+ </div>
+</section>
+
+<main class="container">
+
+<section id="levels">
+ <h2 class="section-title">📚 المستويات التعليمية</h2>
+ <div class="levels">
+  <div class="card"><div class="emoji">🎒</div><h3>الابتدائي</h3><p>السنة الأولى إلى الخامسة</p></div>
+  <div class="card"><div class="emoji">📘</div><h3>المتوسط</h3><p>السنة الأولى إلى الرابعة</p></div>
+  <div class="card"><div class="emoji">🎓</div><h3>الثانوي</h3><p>السنة الأولى إلى الثالثة</p></div>
+  <div class="card"><div class="emoji">🏆</div><h3>شهادة البكالوريا</h3><p>مواضيع وتحضيرات</p></div>
+ </div>
+</section>
+
+<section id="subjects" style="margin-top:45px">
+ <h2 class="section-title">📖 المواد الدراسية</h2>
+ <div class="subjects">
+  <div class="subject"><a href="#exams">الرياضيات</a></div>
+  <div class="subject"><a href="#exams">اللغة العربية</a></div>
+  <div class="subject"><a href="#exams">اللغة الفرنسية</a></div>
+  <div class="subject"><a href="#exams">اللغة الإنجليزية</a></div>
+  <div class="subject"><a href="#exams">العلوم الطبيعية</a></div>
+  <div class="subject"><a href="#exams">الفيزياء</a></div>
+  <div class="subject"><a href="#exams">التاريخ والجغرافيا</a></div>
+  <div class="subject"><a href="#exams">التربية الإسلامية</a></div>
+ </div>
+</section>
+
+<section id="exams" style="margin-top:45px">
+ <h2 class="section-title">📝 الفروض والاختبارات</h2>
+ <div class="results" id="results">
+  <div class="exam" data-search="رياضيات متوسط السنة الرابعة">
+   <h3>اختبارات الرياضيات</h3>
+   <p>السنة الرابعة متوسط</p>
+   <a href="#contact">عرض الملفات قريباً</a>
+  </div>
+  <div class="exam" data-search="عربية ابتدائي السنة الخامسة">
+   <h3>فروض اللغة العربية</h3>
+   <p>السنة الخامسة ابتدائي</p>
+   <a href="#contact">عرض الملفات قريباً</a>
+  </div>
+  <div class="exam" data-search="علوم طبيعية ثانوي">
+   <h3>اختبارات العلوم الطبيعية</h3>
+   <p>الثانوي</p>
+   <a href="#contact">عرض الملفات قريباً</a>
+  </div>
+  <div class="exam" data-search="بكالوريا رياضيات">
+   <h3>مواضيع البكالوريا</h3>
+   <p>جميع الشعب</p>
+   <a href="#contact">عرض الملفات قريباً</a>
+  </div>
+ </div>
+ <div class="empty" id="empty">لم نجد نتائج مطابقة لبحثك.</div>
+</section>
+
+<section id="contact" style="margin-top:45px;text-align:center">
+ <h2>🎯 هدفنا نجاحك</h2>
+ <p>Houari Kadour Exames - التعليم للجميع</p>
+</section>
+
+</main>
+
+<footer>
+ <div class="logo">Houari Kadour <span>Exames</span></div>
+ <p>منصة تعليمية جزائرية</p>
+ <p>© 2026 Houari Kadour Exames</p>
+</footer>
+
+<script>
+function searchItems(){
+ const q=document.getElementById('search').value.trim().toLowerCase();
+ const cards=document.querySelectorAll('.exam');
+ let count=0;
+ cards.forEach(card=>{
+  const match=(card.innerText+' '+card.dataset.search).toLowerCase().includes(q);
+  card.style.display=match?'block':'none';
+  if(match)count++;
+ });
+ document.getElementById('empty').style.display=count?'none':'block';
+ document.getElementById('exams').scrollIntoView({behavior:'smooth'});
+}
+document.getElementById('search').addEventListener('input',searchItems);
+</script>
+
+</body>
+</html>
